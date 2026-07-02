@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модульные дома DOORHAN в Иркутске</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #2c3e50;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #6c757d;
+            line-height: 1.7;
+        }
+
+        /* Models */
+        .models {
+            padding: 80px 0;
+        }
+
+        .models h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #2c3e50;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .model-card {
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .model-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .model-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 64px;
+        }
+
+        .model-info {
+            padding: 30px;
+        }
+
+        .model-info h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .model-specs {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .model-specs li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .model-specs li:last-child {
+            border-bottom: none;
+        }
+
+        .model-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            margin-top: 20px;
+        }
+
+        /* Advantages */
+        .advantages {
+            padding: 80px 0;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .advantages h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .advantage-item {
+            text-align: center;
+        }
+
+        .advantage-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .advantage-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Process */
+        .process {
+            padding: 80px 0;
+        }
+
+        .process h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #2c3e50;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .step-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .step-content p {
+            color: #6c757d;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            background: white;
+            color: #667eea;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .features-grid,
+            .models-grid,
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">DOORHAN Иркутск</div>
+            <nav>
+                <a href="#features">Преимущества</a>
+                <a href="#models">Модели</a>
+                <a href="#process">Как заказать</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Модульные дома DOORHAN в Иркутске</h1>
+            <p>Современные, тёплые, быстрые в строительстве дома с заводским качеством</p>
+            <a href="#contact" class="cta-button">Получить консультацию</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Почему выбирают DOORHAN</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Заводское качество</h3>
+                    <p>Все элементы производятся на заводе в контролируемых условиях. Никаких сюрпризов от погоды или человеческого фактора.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Быстрый монтаж</h3>
+                    <p>От фундамента до готового дома — 2-3 месяца. Въезжайте быстрее, чем при традиционном строительстве.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Тепло и энергоэффективность</h3>
+                    <p>Современные утеплители и технологии обеспечивают комфорт при сибирских морозах до -40°C.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Прозрачная цена</h3>
+                    <p>Фиксированная стоимость в договоре. Никаких скрытых доплат и сюрпризов в процессе строительства.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏦</div>
+                    <h3>Ипотека доступна</h3>
+                    <p>Аккредитация в ДОМ.РФ, Сбербанке и ПСБ. Получите ипотеку на модульный дом как на обычную квартиру.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Гарантия 5 лет</h3>
+                    <p>Официальная гарантия от концерна DOORHAN на все конструктивные элементы и инженерные системы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models -->
+    <section id="models" class="models">
+        <div class="container">
+            <h2>Модели домов</h2>
+            <div class="models-grid">
+                <div class="model-card">
+                    <div class="model-image">🏠</div>
+                    <div class="model-info">
+                        <h3>Стандарт 88 м²</h3>
+                        <ul class="model-specs">
+                            <li><span>Площадь:</span> <strong>88 м²</strong></li>
+                            <li><span>Спальни:</span> <strong>2</strong></li>
+                            <li><span>Санузлы:</span> <strong>1</strong></li>
+                            <li><span>Этажей:</span> <strong>1</strong></li>
+                        </ul>
+                        <div class="model-price">от 4.5 млн ₽</div>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <div class="model-image">🏡</div>
+                    <div class="model-info">
+                        <h3>Комфорт 120 м²</h3>
+                        <ul class="model-specs">
+                            <li><span>Площадь:</span> <strong>120 м²</strong></li>
+                            <li><span>Спальни:</span> <strong>3</strong></li>
+                            <li><span>Санузлы:</span> <strong>2</strong></li>
+                            <li><span>Этажей:</span> <strong>1-2</strong></li>
+                        </ul>
+                        <div class="model-price">от 6.2 млн ₽</div>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <div class="model-image">🏘️</div>
+                    <div class="model-info">
+                        <h3>Премиум 160 м²</h3>
+                        <ul class="model-specs">
+                            <li><span>Площадь:</span> <strong>160 м²</strong></li>
+                            <li><span>Спальни:</span> <strong>4</strong></li>
+                            <li><span>Санузлы:</span> <strong>2-3</strong></li>
+                            <li><span>Этажей:</span> <strong>2</strong></li>
+                        </ul>
+                        <div class="model-price">от 8.5 млн ₽</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="advantages">
+        <div class="container">
+            <h2>Цифры, которые говорят сами за себя</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-number">-56%</div>
+                    <h3>Снижение ввода жилья</h3>
+                    <p>В Иркутской области в 2026 году</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-number">2-3</div>
+                    <h3>Месяца на строительство</h3>
+                    <p>От заказа до въезда</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-number">5 лет</div>
+                    <h3>Гарантия</h3>
+                    <p>На все конструктивные элементы</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-number">-40°C</div>
+                    <h3>Рабочая температура</h3>
+                    <p>Комфорт при сибирских морозах</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2>Как заказать дом</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Консультация</h3>
+                        <p>Обсуждаем ваши потребности, подбираем модель, рассчитываем стоимость. Показываем шоу-рум в Иркутске.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Договор и оплата</h3>
+                        <p>Фиксируем цену и сроки в договоре. Помогаем с ипотекой. Принимаем оплату поэтапно.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Производство</h3>
+                        <p>Изготавливаем модули на заводе. Вы можете следить за процессом на каждом этапе.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Доставка и монтаж</h3>
+                        <p>Привозим модули на участок, устанавливаем на фундамент, подключаем коммуникации.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Сдача ключей</h3>
+                        <p>Принимаете готовый дом, подписываете акт, получаете гарантию на 5 лет.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Готовы обсудить ваш проект?</h2>
+            <p>Оставьте заявку — свяжемся в течение часа</p>
+            <form class="contact-form" action="https://formsubmit.co/your-email@example.com" method="POST">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="Телефон" required>
+                <textarea name="message" placeholder="Расскажите о вашем проекте (необязательно)"></textarea>
+                <button type="submit">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>DOORHAN Иркутск</strong></p>
+            <p>Официальный дилер концерна DOORHAN</p>
+            <p>📞 +7 (XXX) XXX-XX-XX</p>
+            <p>📧 irkutsk@doorhan.ru</p>
+            <p>📍 г. Иркутск, ул. Примерная, 1</p>
+            <p style="margin-top: 20px; opacity: 0.7;">© 2026 DOORHAN Иркутск. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
